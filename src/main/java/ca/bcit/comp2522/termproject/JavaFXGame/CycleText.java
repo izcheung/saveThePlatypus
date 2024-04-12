@@ -4,21 +4,14 @@ import javafx.scene.text.Text;
 import javafx.scene.paint.Color;
 
 public class CycleText extends Text {
-    private int cyclesCount;
-
     public CycleText(int x, int y) {
         super(x, y, "Cycles: 0");
-        setCyclesCount(0);
+        setText("Cycles: " + Run.cyclesCount);
         setFill(Color.WHITE);
     }
 
-    public void setCyclesCount(int cyclesCount) {
-        this.cyclesCount = cyclesCount;
-        setText("Cycles: " + cyclesCount);
-    }
-
     public void incrementCyclesCount() {
-        cyclesCount++;
-        setText("Cycles: " + cyclesCount);
+        Run.cyclesCount++;
+        setText("Cycles: " + Run.cyclesCount);
     }
 }
