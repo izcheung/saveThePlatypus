@@ -6,11 +6,24 @@ import javafx.animation.Timeline;
 import javafx.scene.Group;
 import javafx.util.Duration;
 
+/**
+ * Represents a game loop responsible for generating enemies and updating the game state.
+ */
 public class GameLoop implements Runnable {
     private final Group root;
+
+    /**
+     * Constructs a GameLoop object with the specified root group.
+     *
+     * @param root The root group of the game scene.
+     */
     protected GameLoop(Group root) {
         this.root = root;
     }
+
+    /**
+     * Runs the game loop to continuously generate enemies and update the game state.
+     */
     @Override
     public void run() {
         Timeline timeline = new Timeline(
