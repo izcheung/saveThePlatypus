@@ -5,9 +5,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 
 public class Player extends ImageView implements PlayerBehavior {
-
-    public final int MOVE = 15;
+    public final int MOVE = 50;
     private static Player player;
+    static int level;
 
     private Player(Image image) {
         super(image);
@@ -31,15 +31,27 @@ public class Player extends ImageView implements PlayerBehavior {
         switch (event.getCode()) {
             case UP:
                 setY(getY() - MOVE);
+                if (getY() < 0) {
+                    setY(0);
+                }
                 break;
             case DOWN:
                 setY(getY() + MOVE);
+                if (getY() > Run.APP_HEIGHT - player.getFitHeight()) {
+                    setY(Run.APP_HEIGHT - player.getFitHeight());
+                }
                 break;
             case RIGHT:
                 setX(getX() + MOVE);
+                if (getX() > Run.APP_WIDTH - player.getFitWidth()) {
+                    setX(Run.APP_WIDTH - player.getFitWidth());
+                }
                 break;
             case LEFT:
                 setX(getX() - MOVE);
+                if (getX() < 0) {
+                    setX(0);
+                }
                 break;
             default:
                 break;
