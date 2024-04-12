@@ -5,10 +5,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 
 public class Player extends ImageView implements PlayerBehavior {
-    public final int MOVE = 50;
     private static Player player;
     static int level;
-
     private Player(Image image) {
         super(image);
         setFitWidth(80);
@@ -17,7 +15,6 @@ public class Player extends ImageView implements PlayerBehavior {
         setX(20);
         setY(450);
     }
-
     public static Player getInstance() {
         if (player == null) {
             Image platypusImage = new Image("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp" +
@@ -26,8 +23,8 @@ public class Player extends ImageView implements PlayerBehavior {
         }
         return player;
     }
-
     public void processKeyPress(final KeyEvent event) {
+        int MOVE = 50;
         switch (event.getCode()) {
             case UP:
                 setY(getY() - MOVE);

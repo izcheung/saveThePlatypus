@@ -7,36 +7,15 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
-
 import java.util.Random;
 
 public abstract class Enemy implements Collision {
-    protected final colorEnum[] colorChoices = colorEnum.values();
+    private final colorEnum[] colorChoices = colorEnum.values();
     protected TranslateTransition translateTransition = new TranslateTransition();
     protected static final Random RANDOM = new Random();
 
     public enum colorEnum {
         TEAL, ORANGE, LIME, RED
-    }
-
-    public colorEnum generateRandomColor() {
-        int randomColorIndex = RANDOM.nextInt(colorChoices.length);
-        return colorChoices[randomColorIndex];
-    }
-
-    protected Color convertColorEnumToJavaFX(colorEnum color) {
-        switch (color) {
-            case TEAL:
-                return Color.TEAL;
-            case ORANGE:
-                return Color.ORANGE;
-            case LIME:
-                return Color.LIME;
-            case RED:
-                return Color.RED;
-            default:
-                return Color.BLACK;
-        }
     }
 
     public void move(Group root, Circle circle) {
@@ -58,14 +37,27 @@ public abstract class Enemy implements Collision {
             System.out.println("Collision detected");
         }
     }
+    private colorEnum generateRandomColor() {
+        int randomColorIndex = RANDOM.nextInt(colorChoices.length);
+        return colorChoices[randomColorIndex];
+    }
 
-    public void generateEnemies(Group root) {
+    private Color convertColorEnumToJavaFX(colorEnum color) {
+        return switch (color) {
+            case TEAL -> Color.TEAL;
+            case ORANGE -> Color.ORANGE;
+            case LIME -> Color.LIME;
+            case RED -> Color.RED;
+        };
+    }
+
+    void generateEnemies(Group root) {
         Circle circle = createCircle();
         Color randomColor = convertColorEnumToJavaFX(generateRandomColor());
         circle.setFill(randomColor);
         move(root, circle);
     }
-    public abstract Circle createCircle();
+    abstract Circle createCircle();
 
-    protected abstract void setSpecificMovementDirection(Group root, Circle circle);
+    abstract void setSpecificMovementDirection(Group root, Circle circle);
 }

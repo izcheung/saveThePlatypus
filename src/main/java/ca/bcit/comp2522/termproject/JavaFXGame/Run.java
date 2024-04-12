@@ -1,6 +1,5 @@
 package ca.bcit.comp2522.termproject.JavaFXGame;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -10,15 +9,15 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Run extends Application {
-
     static final int APP_WIDTH = 500;
     static final int APP_HEIGHT = 600;
-    public static ImageView platypus;
-    public static int speed = 2000;
-    protected static boolean gameOver = false;
+    static ImageView platypus;
+    static boolean gameOver = false;
     static int cyclesCount = 0;
     static CycleText cyclesText;
     static LevelUpText levelUpText;
+
+    public static int speed = 2000;
 
     @Override
     public void start(final Stage primaryStage) {
