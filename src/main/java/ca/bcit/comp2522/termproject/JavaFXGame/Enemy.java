@@ -10,43 +10,39 @@ import javafx.util.Duration;
 
 import java.util.Random;
 
-public class Enemy {
+public abstract class Enemy implements Collision {
+    protected final colorEnum[] colorChoices = colorEnum.values();
+    protected TranslateTransition translateTransition = new TranslateTransition();
+    protected static final Random RANDOM = new Random();
 
-    private static final Random RANDOM = new Random();
+    public enum colorEnum {
+        TEAL, ORANGE, LIME, RED
+    }
 
-    public enum EnemyColor {
-        BLUE(Color.BLUE),
-        RED(Color.RED),
-        PURPLE(Color.PURPLE),
-        YELLOW(Color.YELLOW);
+    public colorEnum generateRandomColor() {
+        int randomColorIndex = RANDOM.nextInt(colorChoices.length);
+        return colorChoices[randomColorIndex];
+    }
 
-        private final Color color;
-
-        EnemyColor(Color color) {
-            this.color = color;
-        }
-
-        public Color getColor() {
-            return color;
-        }
-
-        private static final EnemyColor[] VALUES = values();
-        private static final int SIZE = VALUES.length;
-
-        public static EnemyColor getRandomColor() {
-            return VALUES[RANDOM.nextInt(SIZE)];
+    protected Color convertColorEnumToJavaFX(colorEnum color) {
+        switch (color) {
+            case TEAL:
+                return Color.TEAL;
+            case ORANGE:
+                return Color.ORANGE;
+            case LIME:
+                return Color.LIME;
+            case RED:
+                return Color.RED;
+            default:
+                return Color.BLACK;
         }
     }
 
-    private static void moveEnemy(Group root, Circle circle) {
-        TranslateTransition translateTransition = new TranslateTransition();
-        translateTransition.setDuration(Duration.millis(2000));
+    public void move(Group root, Circle circle) {
+        translateTransition.setDuration(Duration.millis(Run.speed));
         translateTransition.setNode(circle);
-        if (circle.getCenterX() == -25) {
-            translateTransition.setByX(Run.APP_WIDTH + 50);
-        } else {
-            translateTransition.setByY(Run.APP_HEIGHT + 50);
-        }
+        setSpecificMovementDirection(root, circle);
         translateTransition.setAutoReverse(false);
         translateTransition.setOnFinished(event -> root.getChildren().remove(circle));
         translateTransition.currentTimeProperty().addListener((observable, oldValue, newValue) ->
@@ -54,8 +50,7 @@ public class Enemy {
         root.getChildren().add(circle);
         translateTransition.play();
     }
-
-    public static void checkCollision(ImageView player, Circle enemy, Group root) {
+    public void checkCollision(ImageView player, Circle enemy, Group root) {
         boolean collisionDetected = player.getBoundsInParent().intersects(enemy.getBoundsInParent());
         if (collisionDetected) {
             Run.gameOver = true;
@@ -64,17 +59,13 @@ public class Enemy {
         }
     }
 
-    public static void generateEnemies(Group root) {
-        Random rand = new Random();
-        Circle verticalCircle = new Circle(rand.nextInt(Run.APP_WIDTH), -25, 25,
-                EnemyColor.getRandomColor().getColor());
-        moveEnemy(root, verticalCircle);
-
-        Circle horizontalCircle = new Circle(-25, rand.nextInt(Run.APP_HEIGHT), 25,
-                EnemyColor.getRandomColor().getColor());
-        moveEnemy(root, horizontalCircle);
-
-        Run.cyclesCount++;
-        Run.cyclesText.incrementCyclesCount();
+    public void generateEnemies(Group root) {
+        Circle circle = createCircle();
+        Color randomColor = convertColorEnumToJavaFX(generateRandomColor());
+        circle.setFill(randomColor);
+        move(root, circle);
     }
+    public abstract Circle createCircle();
+
+    protected abstract void setSpecificMovementDirection(Group root, Circle circle);
 }
