@@ -14,48 +14,41 @@ public class Run extends Application {
     static final int APP_WIDTH = 500;
     static final int APP_HEIGHT = 600;
     public static ImageView platypus;
-
+    public static int speed = 2000;
     protected static boolean gameOver = false;
-
     static int cyclesCount = 0;
     static CycleText cyclesText;
+    static LevelUpText levelUpText;
 
     @Override
     public void start(final Stage primaryStage) {
         Player platypus = Player.getInstance();
         Group root = new Group(platypus);
         Scene scene = new Scene(root, APP_WIDTH, APP_HEIGHT, Color.BLACK);
-
         Button startButton = new Button("Start Game");
-        startButton.setOnAction(event -> startGameLoop(root)); // Pass the root group to startGameLoop
+        startButton.setOnAction(event -> startGameLoop(root));
         startButton.setLayoutX(200);
         startButton.setLayoutY(250);
-        root.getChildren().add(startButton);
         cyclesText = new CycleText(APP_WIDTH - 100, 50);
+        levelUpText = new LevelUpText(APP_WIDTH-100, 25 );
         Text gameOverText = new Text();
-        cyclesText.setFill(Color.WHITE);
+        root.getChildren().add(startButton);
         root.getChildren().add(gameOverText);
         root.getChildren().add(cyclesText);
-
-        scene.setOnKeyPressed(platypus::processKeyPress); // Corrected method reference
-
-        primaryStage.setTitle("Flappy Platypus");
+        root.getChildren().add(levelUpText);
+        scene.setOnKeyPressed(platypus::processKeyPress);
+        primaryStage.setTitle("Save the Platypus!");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
     private void startGameLoop(Group root) {
         platypus = Player.getInstance();
-        Platform.runLater(() -> {
-            root.getChildren().clear(); // Clear the root node before starting the game loop
-            root.getChildren().add(platypus); // Add the player circle back
-            root.getChildren().add(cyclesText); // Add cyclesText
-        });
-
-        cyclesCount = 0;
-        gameOver = false;
-
-        new Thread(new GameLoop(root)).start();
+        root.getChildren().clear();
+        root.getChildren().add(platypus);
+        root.getChildren().add(cyclesText);
+        root.getChildren().add(levelUpText);
+        new GameLoop(root).run();
     }
 
     public static void main(String[] args) {
