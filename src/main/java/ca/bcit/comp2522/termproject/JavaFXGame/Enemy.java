@@ -1,4 +1,4 @@
-package ca.bcit.comp2522.termproject.flappyplatypus;
+package ca.bcit.comp2522.termproject.JavaFXGame;
 
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
