@@ -20,7 +20,6 @@ public class VerticalEnemy extends Enemy {
      * @param circle The circle representing the enemy.
      */
     public void setSpecificMovementDirection(Group root, Circle circle) {
-        TranslateTransition translateTransition = new TranslateTransition();
         translateTransition.setByX(Run.APP_WIDTH + 50);
     }
 

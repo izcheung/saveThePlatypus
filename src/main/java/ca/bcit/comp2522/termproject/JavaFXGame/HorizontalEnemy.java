@@ -21,7 +21,6 @@ public class HorizontalEnemy extends Enemy {
      * @param circle The circle representing the enemy.
      */
     protected void setSpecificMovementDirection(Group root, Circle circle) {
-        TranslateTransition translateTransition = new TranslateTransition();
         translateTransition.setByY(Run.APP_HEIGHT + 50);
     }
 
