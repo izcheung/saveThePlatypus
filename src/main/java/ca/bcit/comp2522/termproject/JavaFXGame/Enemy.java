@@ -36,6 +36,8 @@ public abstract class Enemy implements Collision {
         return colorChoices;
     }
 
+    protected TranslateTransition translateTransition = new TranslateTransition();
+
     /**
      * Moves the enemy object.
      *
@@ -43,8 +45,6 @@ public abstract class Enemy implements Collision {
      * @param circle The circle representing the enemy object.
      */
     public void move(Group root, Circle circle) {
-        TranslateTransition translateTransition = new TranslateTransition();
-
         translateTransition.setDuration(Duration.millis(Run.speed));
         translateTransition.setNode(circle);
         setSpecificMovementDirection(root, circle);
