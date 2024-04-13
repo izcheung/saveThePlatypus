@@ -7,15 +7,18 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
+import java.util.Arrays;
 import java.util.Random;
 
 /**
  * Represents an abstract class for enemy objects in the game.
+ *
+ * @author Irene Cheung
+ * @version 2024
  */
 public abstract class Enemy implements Collision {
+
     private final colorEnum[] colorChoices = colorEnum.values();
-    protected TranslateTransition translateTransition = new TranslateTransition();
-    protected static final Random RANDOM = new Random();
 
     /**
      * An enumeration of all available color options for enemies.
@@ -25,12 +28,23 @@ public abstract class Enemy implements Collision {
     }
 
     /**
+     * Retrieves the array of color choices available for enemies.
+     *
+     * @return An array of color choices represented by the colorEnum enum.
+     */
+    public colorEnum[] getColorChoices() {
+        return colorChoices;
+    }
+
+    /**
      * Moves the enemy object.
      *
      * @param root   The root group of the game scene.
      * @param circle The circle representing the enemy object.
      */
     public void move(Group root, Circle circle) {
+        TranslateTransition translateTransition = new TranslateTransition();
+
         translateTransition.setDuration(Duration.millis(Run.speed));
         translateTransition.setNode(circle);
         setSpecificMovementDirection(root, circle);
@@ -58,6 +72,7 @@ public abstract class Enemy implements Collision {
         }
     }
     private colorEnum generateRandomColor() {
+        final Random RANDOM = new Random();
         int randomColorIndex = RANDOM.nextInt(colorChoices.length);
         return colorChoices[randomColorIndex];
     }
@@ -88,7 +103,7 @@ public abstract class Enemy implements Collision {
      *
      * @return The circle representing the enemy.
      */
-    abstract Circle createCircle();
+    protected abstract Circle createCircle();
 
     /**
      * Abstract method to set the specific movement direction of the enemy.
@@ -96,5 +111,41 @@ public abstract class Enemy implements Collision {
      * @param root   The root group of the game scene.
      * @param circle The circle representing the enemy.
      */
-    abstract void setSpecificMovementDirection(Group root, Circle circle);
+    protected abstract void setSpecificMovementDirection(Group root, Circle circle);
+
+    /**
+     * Indicates whether some other object is "equal to" this one.
+     *
+     * @param o The reference object with which to compare.
+     * @return {@code true} if this object is the same as the {@code o} argument; {@code false} otherwise.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Enemy enemy = (Enemy) o;
+        return Arrays.equals(getColorChoices(), enemy.getColorChoices());
+    }
+
+    /**
+     * Returns a hash code value for the object.
+     *
+     * @return A hash code value for this object.
+     */
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(getColorChoices());
+    }
+
+    /**
+     * Returns a string representation of the Enemy object.
+     *
+     * @return A string representation of the Enemy object, including its color choices.
+     */
+    @Override
+    public String toString() {
+        return "Enemy{" +
+                "colorChoices=" + Arrays.toString(colorChoices) +
+                '}';
+    }
 }
