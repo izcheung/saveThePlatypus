@@ -5,6 +5,9 @@ import javafx.scene.paint.Color;
 
 /**
  * Represents a text node that displays the number of cycles.
+ *
+ * @author Irene Cheung
+ * @version 2024
  */
 public class CycleText extends Text {
 
@@ -23,8 +26,10 @@ public class CycleText extends Text {
     /**
      * Increments the cycles count and updates the text accordingly.
      */
-    protected void incrementCyclesCount() {
+    public void incrementCyclesCount() {
         Run.cyclesCount++;
         setText("Cycles: " + Run.cyclesCount);
     }
+
+
 }
