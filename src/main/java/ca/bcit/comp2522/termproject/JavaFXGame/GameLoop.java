@@ -14,16 +14,13 @@ import java.util.Objects;
  * @author Irene Cheung
  * @version 2024
  */
-public class GameLoop implements Runnable {
-    private final Group root;
-
+public record GameLoop(Group root) implements Runnable {
     /**
      * Constructs a GameLoop object with the specified root group.
      *
      * @param root The root group of the game scene.
      */
-    public GameLoop(Group root) {
-        this.root = root;
+    public GameLoop {
     }
 
     /**
@@ -31,7 +28,8 @@ public class GameLoop implements Runnable {
      *
      * @return The root group of the JavaFX scene.
      */
-    public Group getRoot() {
+    @Override
+    public Group root() {
         return root;
     }
 
@@ -41,16 +39,16 @@ public class GameLoop implements Runnable {
     @Override
     public void run() {
         Timeline timeline = new Timeline(
-            new KeyFrame(Duration.seconds(3), event -> {
-                if (!Run.gameOver) {
-                    Enemy verticalEnemy = new VerticalEnemy();
-                    Enemy horizontalEnemy = new HorizontalEnemy();
-                    verticalEnemy.generateEnemies(root);
-                    horizontalEnemy.generateEnemies(root);
-                    Run.cyclesText.incrementCyclesCount();
-                    Run.levelUpText.updateLevel();
-                }
-            })
+                new KeyFrame(Duration.seconds(3), event -> {
+                    if (!Run.gameOver) {
+                        Enemy verticalEnemy = new VerticalEnemy();
+                        Enemy horizontalEnemy = new HorizontalEnemy();
+                        verticalEnemy.generateEnemies(root);
+                        horizontalEnemy.generateEnemies(root);
+                        Run.cyclesText.incrementCyclesCount();
+                        Run.levelUpText.updateLevel();
+                    }
+                })
         );
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
@@ -67,17 +65,7 @@ public class GameLoop implements Runnable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         GameLoop gameLoop = (GameLoop) o;
-        return Objects.equals(getRoot(), gameLoop.getRoot());
-    }
-
-    /**
-     * Returns a hash code value for the object.
-     *
-     * @return A hash code value for this object.
-     */
-    @Override
-    public int hashCode() {
-        return Objects.hash(root);
+        return Objects.equals(root(), gameLoop.root());
     }
 
     /**
