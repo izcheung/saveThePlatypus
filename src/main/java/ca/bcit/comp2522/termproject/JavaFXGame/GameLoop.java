@@ -6,8 +6,13 @@ import javafx.animation.Timeline;
 import javafx.scene.Group;
 import javafx.util.Duration;
 
+import java.util.Objects;
+
 /**
  * Represents a game loop responsible for generating enemies and updating the game state.
+ *
+ * @author Irene Cheung
+ * @version 2024
  */
 public class GameLoop implements Runnable {
     private final Group root;
@@ -17,8 +22,17 @@ public class GameLoop implements Runnable {
      *
      * @param root The root group of the game scene.
      */
-    protected GameLoop(Group root) {
+    public GameLoop(Group root) {
         this.root = root;
+    }
+
+    /**
+     * Gets the root group of the JavaFX scene.
+     *
+     * @return The root group of the JavaFX scene.
+     */
+    public Group getRoot() {
+        return root;
     }
 
     /**
@@ -40,5 +54,41 @@ public class GameLoop implements Runnable {
         );
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
+    }
+
+    /**
+     * Indicates whether some other object is "equal to" this one.
+     *
+     * @param o The reference object with which to compare.
+     * @return {@code true} if this object is the same as the {@code o} argument; {@code false} otherwise.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        GameLoop gameLoop = (GameLoop) o;
+        return Objects.equals(getRoot(), gameLoop.getRoot());
+    }
+
+    /**
+     * Returns a hash code value for the object.
+     *
+     * @return A hash code value for this object.
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(root);
+    }
+
+    /**
+     * Returns a string representation of the GameLoop object.
+     *
+     * @return A string representation of the GameLoop object, including its root group.
+     */
+    @Override
+    public String toString() {
+        return "GameLoop{" +
+                "root=" + root +
+                '}';
     }
 }
