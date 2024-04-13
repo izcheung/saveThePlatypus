@@ -1,6 +1,5 @@
 package ca.bcit.comp2522.termproject.JavaFXGame;
 
-import javafx.animation.TranslateTransition;
 import javafx.scene.Group;
 import javafx.scene.shape.Circle;
 
