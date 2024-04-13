@@ -6,6 +6,9 @@ import javafx.scene.shape.Circle;
 
 /**
  * Defines methods for collision detection and handling.
+ *
+ * @author Irene Cheung
+ * @version 2024
  */
 public interface Collision {
 
