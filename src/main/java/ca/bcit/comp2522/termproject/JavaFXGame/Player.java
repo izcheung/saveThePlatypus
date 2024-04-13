@@ -4,10 +4,22 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 
+/**
+ * Represents the player character in the game.
+ *
+ * @author Irene Cheung
+ * @version 2024
+ */
 public class Player extends ImageView implements PlayerBehavior {
     private static Player player;
-    static int level;
-    private Player(Image image) {
+    protected static int level;
+
+    /**
+     * Constructs a Player object with the specified image.
+     *
+     * @param image The image representing the player character.
+     */
+    public Player(Image image) {
         super(image);
         setFitWidth(80);
         setFitHeight(80);
@@ -15,6 +27,12 @@ public class Player extends ImageView implements PlayerBehavior {
         setX(20);
         setY(450);
     }
+
+    /**
+     * Returns a singleton instance of the Player object.
+     *
+     * @return The Player object instance.
+     */
     public static Player getInstance() {
         if (player == null) {
             Image platypusImage = new Image("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp" +
@@ -23,6 +41,12 @@ public class Player extends ImageView implements PlayerBehavior {
         }
         return player;
     }
+
+    /**
+     * Processes the key press event to move the player character.
+     *
+     * @param event The key event representing the key press.
+     */
     public void processKeyPress(final KeyEvent event) {
         int MOVE = 50;
         switch (event.getCode()) {
