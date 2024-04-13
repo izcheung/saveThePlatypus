@@ -8,17 +8,29 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * Represents the main class to run the JavaFX game.
+ *
+ * @author Irene Cheung
+ * @version 2024
+ */
 public class Run extends Application {
-    static final int APP_WIDTH = 500;
-    static final int APP_HEIGHT = 600;
-    static ImageView platypus;
-    static boolean gameOver = false;
-    static int cyclesCount = 0;
-    static CycleText cyclesText;
-    static LevelUpText levelUpText;
+
+    public static final int APP_WIDTH = 500;
+    public static final int APP_HEIGHT = 600;
+    protected static ImageView platypus;
+    protected static boolean gameOver = false;
+    protected static int cyclesCount = 0;
+    protected static CycleText cyclesText;
+    protected static LevelUpText levelUpText;
 
     public static int speed = 2000;
 
+    /**
+     * Starts the JavaFX application.
+     *
+     * @param primaryStage The primary stage of the JavaFX application.
+     */
     @Override
     public void start(final Stage primaryStage) {
         Player platypus = Player.getInstance();
@@ -41,6 +53,11 @@ public class Run extends Application {
         primaryStage.show();
     }
 
+    /**
+     * Starts the game loop.
+     *
+     * @param root The root group of the game scene.
+     */
     private void startGameLoop(Group root) {
         platypus = Player.getInstance();
         root.getChildren().clear();
@@ -50,6 +67,11 @@ public class Run extends Application {
         new GameLoop(root).run();
     }
 
+    /**
+     * Drives the program.
+     *
+     * @param args The command-line arguments passed to the application.
+     */
     public static void main(String[] args) {
         launch(args);
     }
