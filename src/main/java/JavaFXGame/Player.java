@@ -1,4 +1,4 @@
-package ca.bcit.comp2522.termproject.JavaFXGame;
+package JavaFXGame;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -79,3 +79,5 @@ public class Player extends ImageView implements PlayerBehavior {
         }
     }
 }
+
+

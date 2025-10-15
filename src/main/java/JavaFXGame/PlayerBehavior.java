@@ -1,7 +1,6 @@
-package ca.bcit.comp2522.termproject.JavaFXGame;
+package JavaFXGame;
 
 import javafx.scene.input.KeyEvent;
-
 
 /**
  * Defines the behavior for a player character in the game.
@@ -18,3 +17,5 @@ public interface PlayerBehavior {
      */
     void processKeyPress(final KeyEvent event);
 }
+
+

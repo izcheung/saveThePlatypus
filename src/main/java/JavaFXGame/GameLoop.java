@@ -1,5 +1,4 @@
-package ca.bcit.comp2522.termproject.JavaFXGame;
-
+package JavaFXGame;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -80,3 +79,5 @@ public record GameLoop(Group root) implements Runnable {
                 '}';
     }
 }
+
+

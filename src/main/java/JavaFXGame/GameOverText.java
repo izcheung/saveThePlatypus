@@ -1,10 +1,9 @@
-package ca.bcit.comp2522.termproject.JavaFXGame;
+package JavaFXGame;
 
 import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-
 
 /**
  * Represents a class for displaying the "Game Over" text.
@@ -33,3 +32,5 @@ public class GameOverText {
         });
     }
 }
+
+

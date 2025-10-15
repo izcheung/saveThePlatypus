@@ -1,4 +1,4 @@
-package ca.bcit.comp2522.termproject.JavaFXGame;
+package JavaFXGame;
 
 import javafx.scene.text.Text;
 import javafx.scene.paint.Color;
@@ -30,6 +30,6 @@ public class CycleText extends Text {
         Run.cyclesCount++;
         setText("Cycles: " + Run.cyclesCount);
     }
-
-
 }
+
+

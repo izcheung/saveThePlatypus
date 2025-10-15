@@ -1,4 +1,4 @@
-package ca.bcit.comp2522.termproject.JavaFXGame;
+package JavaFXGame;
 
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
@@ -149,3 +149,5 @@ public abstract class Enemy implements Collision {
                 '}';
     }
 }
+
+

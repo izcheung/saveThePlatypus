@@ -1,4 +1,4 @@
-package ca.bcit.comp2522.termproject.JavaFXGame;
+package JavaFXGame;
 
 import javafx.scene.text.Text;
 import javafx.scene.paint.Color;
@@ -35,5 +35,6 @@ public class LevelUpText extends Text {
             setText("Level: " + Player.level);
         }
     }
-
 }
+
+

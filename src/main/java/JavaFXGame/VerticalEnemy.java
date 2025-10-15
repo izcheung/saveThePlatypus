@@ -1,4 +1,4 @@
-package ca.bcit.comp2522.termproject.JavaFXGame;
+package JavaFXGame;
 
 import javafx.scene.Group;
 import javafx.scene.shape.Circle;
@@ -33,3 +33,5 @@ public class VerticalEnemy extends Enemy {
         return new Circle(-25, RANDOM.nextInt(Run.APP_HEIGHT), 25);
     }
 }
+
+

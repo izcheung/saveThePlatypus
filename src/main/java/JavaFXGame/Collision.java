@@ -1,4 +1,4 @@
-package ca.bcit.comp2522.termproject.JavaFXGame;
+package JavaFXGame;
 
 import javafx.scene.Group;
 import javafx.scene.image.ImageView;
@@ -29,3 +29,5 @@ public interface Collision {
      */
     void checkCollision(ImageView imageView, Circle circle, Group group);
 }
+
+
