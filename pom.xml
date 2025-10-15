@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ca.bcit.comp2522.termproject</groupId>
-    <artifactId>FlappyPlatypus</artifactId>
+    <artifactId>SaveThePlatypus</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>FlappyPlatypus</name>
+    <name>SaveThePlatypus</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                ca.bcit.comp2522.termproject.flappyplatypus/ca.bcit.comp2522.termproject.JavaFXGame.HelloApplication
+                                ca.bcit.comp2522.termproject.flappyplatypus/JavaFXGame.Run
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
