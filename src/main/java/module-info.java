@@ -1,4 +1,4 @@
-module ca.bcit.comp2522.termproject.flappyplatypus {
+module savetheplatypus {
     requires javafx.controls;
     requires javafx.fxml;
 
