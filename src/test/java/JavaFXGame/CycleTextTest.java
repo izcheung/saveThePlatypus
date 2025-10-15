@@ -1,8 +1,8 @@
-import ca.bcit.comp2522.termproject.JavaFXGame.CycleText;
+package JavaFXGame;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 
 public class CycleTextTest {
     @Test
@@ -14,9 +14,7 @@ public class CycleTextTest {
         String expectedFinalText = "Cycles: 1";
         cycleText.incrementCyclesCount();
         assertEquals(expectedFinalText, (cycleText.getText()));
-
-
     }
-
-
 }
+
+

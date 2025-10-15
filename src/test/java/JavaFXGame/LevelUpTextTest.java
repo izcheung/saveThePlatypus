@@ -1,7 +1,7 @@
-import ca.bcit.comp2522.termproject.JavaFXGame.LevelUpText;
+package JavaFXGame;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 
 public class LevelUpTextTest {
     @Test
@@ -10,6 +10,6 @@ public class LevelUpTextTest {
         String expectedInitialText = "Level: 0";
         assertEquals(expectedInitialText, (levelUpText.getText()));
     }
-
-
 }
+
+
