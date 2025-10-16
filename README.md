@@ -48,16 +48,14 @@ In the project root, execute:
 ./mvnw clean javafx:run
 ```
 
-## Controls
-
+## Gameplay
+### Objective
+Try to avoid as many cycles of enemy projectiles as possible.
+### Controls
 - Start Game: Click the "Start Game" button
 - Arrow Keys: UP / DOWN / LEFT / RIGHT to move your platypus
-
-## Gameplay
-
-- Objective: Survive as many cycles of enemy projectiles as possible.
-- Levels: Every 5 cycles survived, the game level increases and enemy speed rises.
-- Game Over: Contact with any projectile ends the game.
+### Levels
+Every 5 cycles survived, the game level increases and enemy speed rises.
 
 ## Features
 
@@ -69,7 +67,6 @@ In the project root, execute:
 ## Testing
 
 Run:
-
 ```bash
 ./mvnw test
 ```
