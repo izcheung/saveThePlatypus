@@ -27,7 +27,12 @@ represented as objects with their own properties and behaviors. This approach he
 
 ## Quick Start
 
-The entry point is `JavaFXGame.Run`.
+Clone the repository:
+
+```
+git clone https://github.com/izcheung/saveThePlatypus.git
+cd saveThePlatypus
+```
 
 ### Run from IDE
 
