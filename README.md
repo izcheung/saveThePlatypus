@@ -4,20 +4,21 @@
 
 ## Summary
 
-"Save the Platypus!" is a 2D game built using Java and JavaFX. The objective of this game is to try to make your platypus survive as many cycles of enemy projectile attacks as possible.
-Projectiles are shot across the screen both vertically and horizontally at randomly generated x and y-axis values.
+"Save the Platypus!" is a 2D arcade-style game built using Java and JavaFX. Guide your platypus to survive waves of enemy projectiles as long as possible. Projectiles appear randomly along the x and y axes and move both vertically and horizontally.
 
-To move the platypus, use the arrows keys, UP, DOWN, LEFT, and RIGHT to dodge these attacks. For every 5 cycles
-that you
-successfully dodge the projectiles, you increase a level and the speed of the enemies increases. If your platypus touches the enemies at any point, it is GAME OVER.
+Dodge the attacks using the arrow keys. For every 5 cycles successfully survived, your level increases, and enemies move faster. If the platypus touches a projectile, it’s GAME OVER.
 
 ## Motivation
 
-"Save the Platypus!" was developed as a fun way to apply and expand my Java and JavaFX knowledge while diving deeper
-into object-oriented programming (OOP).
+This project was created to strengthen my understanding of Java, JavaFX, and object-oriented programming (OOP). The game uses a class-based structure, with game entities like the platypus and projectiles represented as objects with their own properties and behaviors.
 
-The game uses a class-based structure, where different game components (like the platypus and projectiles) are
-represented as objects with their own properties and behaviors. This approach helped me reinforce my understanding of classes, inheritance, and encapsulation in a practical context. Throughout the development process, I focused on creating modular and reusable code, making the game easy to maintain and extend. Overall, this project not only helped improve my coding and problem-solving abilities but also gave me a chance to apply OOP concepts in a fun and engaging way.
+Developing this game helped me reinforce:
+
+- Classes, Inheritance, and Encapsulation
+- Modular and Reusable Code Design
+- Event Handling and Game Loop Logic in JavaFX
+
+Overall, this project combined learning with fun, giving me hands-on experience applying OOP concepts in an interactive environment.
 
 ## Requirements
 
@@ -34,13 +35,14 @@ git clone https://github.com/izcheung/saveThePlatypus.git
 cd saveThePlatypus
 ```
 
-### Run from IDE
+### Run from your IDE
 
-You can run from your IDE by right-clicking `Run.java` and clicking "Run Java".
+- Open JavaFXGame.Run or Run.java
+- Right-click → Run Java
 
-### Run from Terminal
+### Run from the Terminal
 
-In the project root, run:
+In the project root, execute:
 
 ```bash
 ./mvnw clean javafx:run
@@ -48,10 +50,23 @@ In the project root, run:
 
 ## Controls
 
-- Click "Start Game" to begin
-- Arrow Keys: UP / DOWN / LEFT / RIGHT to move
+- Start Game: Click the "Start Game" button
+- Arrow Keys: UP / DOWN / LEFT / RIGHT to move your platypus
 
-## Run Tests
+## Gameplay
+
+- Objective: Survive as many cycles of enemy projectiles as possible.
+- Levels: Every 5 cycles survived, the game level increases and enemy speed rises.
+- Game Over: Contact with any projectile ends the game.
+
+## Features
+
+- 2D JavaFX Graphics: Smooth animations and dynamic projectile generation
+- Object-Oriented Design: Classes for platypus, projectiles, and game management
+- Level Progression: Increasing difficulty as you survive longer
+- Reusable and Modular Code: Easy to extend with new features or enemy types
+
+## Testing
 
 Run:
 
