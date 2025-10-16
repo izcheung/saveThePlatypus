@@ -19,7 +19,7 @@ into object-oriented programming (OOP).
 The game uses a class-based structure, where different game components (like the platypus and projectiles) are
 represented as objects with their own properties and behaviors. This approach helped me reinforce my understanding of classes, inheritance, and encapsulation in a practical context. Throughout the development process, I focused on creating modular and reusable code, making the game easy to maintain and extend. Overall, this project not only helped improve my coding and problem-solving abilities but also gave me a chance to apply OOP concepts in a fun and engaging way.
 
-## Prerequisites
+## Requirements
 
 - JDK 21 installed and active
 - Maven installed (or use the included Maven Wrapper `./mvnw` if present)
