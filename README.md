@@ -2,6 +2,16 @@
 
 ![SaveThePlatypusGif](assets/SaveThePlatypus.gif)
 
+## Table of Contents
+
+1. [Summary](#summary)
+2. [Motivation](#motivation)
+3. [Requirements](#requirements)
+4. [Quick Start](#quick-start)
+5. [Gameplay](#gameplay)
+6. [Features](#features)
+7. [Testing](#testing)
+
 ## Summary
 
 "Save the Platypus!" is a 2D arcade-style game built using Java and JavaFX. Guide your platypus to survive waves of enemy projectiles as long as possible. Projectiles appear randomly along the x and y axes and move both vertically and horizontally.
@@ -49,12 +59,18 @@ In the project root, execute:
 ```
 
 ## Gameplay
+
 ### Objective
+
 Try to avoid as many cycles of enemy projectiles as possible.
+
 ### Controls
+
 - Start Game: Click the "Start Game" button
 - Arrow Keys: UP / DOWN / LEFT / RIGHT to move your platypus
+
 ### Levels
+
 Every 5 cycles survived, the game level increases and enemy speed rises.
 
 ## Features
@@ -67,6 +83,7 @@ Every 5 cycles survived, the game level increases and enemy speed rises.
 ## Testing
 
 Run:
+
 ```bash
 ./mvnw test
 ```
